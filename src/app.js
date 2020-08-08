@@ -16,5 +16,5 @@ app.post('/users',(req, res) => {
   }).catch((error)=> {
     console.log(error)
   })
-  res.send({ji:'name'})
+  res.send(req.body)
 })

@@ -36,6 +36,9 @@ app.get('/users/:id', async (req, res) => {
   console.log(req.params)
   try {
     let getData =  await Login.findById(req.params.id)
+    if(!getData) {
+      res.status(404).send()
+    }
     res.send(getData)
   } catch(e){
      console.log(e)
@@ -58,4 +61,10 @@ app.patch('/users', async (req, res) => {
  } catch(e) {
     console.log(e)
  }
+})
+
+
+app.delete('/users', async(req, res) => {
+   let data = await Login.findByIdAndDelete(req.body.id)
+   res.send(data)
 })

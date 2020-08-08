@@ -12,7 +12,7 @@ app.listen(port, ()=> {
 app.post('/users',(req, res) => {
   let user = new Login(req.body);
   user.save().then( () => {
-    console.log('saved')
+    console.log('saved successfully')
   }).catch((error)=> {
     console.log(error)
   })
